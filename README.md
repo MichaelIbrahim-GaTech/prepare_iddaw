@@ -1,5 +1,3 @@
-# Scene Understanding Challenge for Autonomous Navigation in Unstructured Environments
-
 
 # ICPR-24 Competition on Safe Segmentation of Drive Scenes in Unstructured Traffic and Adverse Weather Condition 
 
@@ -79,43 +77,6 @@ python evaluate/evaluate_mIoU.py --gts $GT  --preds $PRED  --num-workers $C
 - GT is the folder path of ground truths containing <drive_no>/<img_no>_gtFine_labellevel3Ids.png 
 - PRED is the folder paths of predictions with the same folder structure and file names.
 - C is the number of threads to run in parallel
-
-
-### Constrained Semantic Segmentation
-
-First generate labels masks with level1Ids as described before. Then
-```bash
-python evaluate/idd_lite_evaluate_mIoU.py --gts $GT  --preds $PRED  --num-workers $C
-```
-
-- GT is the folder path of ground truths containing <drive_no>/<img_no>_gtFine_labellevel1Ids.png 
-- PRED is the folder paths of predictions with the same folder structure and file names.
-- C is the number of threads to run in parallel
-
-
-### Instance Segmentation
-
-
-First generate instance label masks with ID_TYPE=id, as described before. Then
-```bash
-python evaluate/evaluate_instance_segmentation.py --gts $GT  --preds $PRED 
-```
-
-- GT is the folder path of ground truths containing <drive_no>/<img_no>_gtFine_labellevel3Ids.png 
-- PRED is the folder paths of predictions with the same folder structure and file names. The format for predictions is the same as the cityscapes dataset. That is a .txt file where each line is of the form "<instance_mask_png> <label id> <conf score>". Note that the ID_TYPE=id is used by this evaluation code.
-- C is the number of threads to run in parallel
-
-### Panoptic Segmentation
-
-Please use https://github.com/AutoNUE/panopticapi
-
-### Detection
-
-```bash
-python evaluate/evaluate_detection.py --gts $GT  --preds $PRED 
-```
-- GT is the folder path of ground truths containing Annotations/<capture_category>/<drive sequence>/<>.xml
-- PRED is the folder path of predictions with generated outputs in idd_det_<image_set>_<level3Id>.txt format. Here image_set can take {train,val,test}, while level3Id for all trainable labels has to present.
 
 
 
