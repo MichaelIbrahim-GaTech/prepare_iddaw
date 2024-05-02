@@ -79,10 +79,3 @@ python evaluate/evaluate_mIoU.py --gts $GT  --preds $PRED  --num-workers $C
 - C is the number of threads to run in parallel
 
 
-
-## Acknowledgement
-
-Some of the code was adapted from the cityscapes code at: https://github.com/mcordts/cityscapesScripts/ 
-Some of the code was adapted from https://github.com/rbgirshick/py-faster-rcnn
-Some of the code was adapted from https://github.com/cocodataset/panopticapi
-
