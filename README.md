@@ -1,70 +1,10 @@
 # Scene Understanding Challenge for Autonomous Navigation in Unstructured Environments
 
-Code for working with the dataset used for the [Scene Understanding Challenge for Autonomous Navigation in Unstructured Environments](http://cvit.iiit.ac.in/scene-understanding-challenge-2018/). For details of getting the dataset and updates see:
-- https://cvit.iiit.ac.in/autonue2021/
-- https://cvit.iiit.ac.in/autonue2019/
-- http://cvit.iiit.ac.in/autonue2018/
-- http://cvit.iiit.ac.in/scene-understanding-challenge-2018/ 
-
 
 # AutoNUE 2021 (Domain Adaptation and Semantic Segmentation)
 
 This repository contains the datasets related to domain adaptation and segmentation challenges for AutoNEU 2021, CVPR Workshop. For more details, please visit https://cvit.iiit.ac.in/autonue2021/challenge. For the segmentation challenge, please skip "Source datasets" section below.
 
-
-## Source datasets:
-
-Participants are requested to download the datasets from original websites, given below for easy reference:-
-1. https://www.mapillary.com/dataset/vistas?pKey=q0GhQpk20wJm1ba1mfwJmw
-2. https://bdd-data.berkeley.edu/ (you might have to click on Advanced tab, and then click on "proceed to bdd-data.berkeley.edu")
-3. https://download.visinf.tu-darmstadt.de/data/from_games/
-4. https://www.cityscapes-dataset.com/examples/#fine-annotations (only fine-annotations to be used)
-
-After downloading all the source datasets, move them to folder ./domain_adaptation/source/datasets/. Its folder structure should be as follows:
-```
-datasets
-  |--mapillary-vistas-dataset_public_v1.1/
-  |  |--training/
-  |  |  |--images/
-  |  |  |--labels/
-  |  |--validation/
-  |  |  |--images/
-  |  |  |--labels/
-  |  |--testing/
-  |     |--images/
-  |--bdd100k/
-  |  |--seg/
-  |     |--images/
-  |     |  |--train/
-  |     |  |--val/
-  |     |  |--test/
-  |     |--labels/
-  |        |--train/
-  |        |--val/
-  |--gta/
-  |  |--images/
-  |  |--labels/
-  |--cityscapes/
-     |--gtFine/
-     |  |--train/
-     |  |--val/
-     |  |--test/
-     |--leftImg8bit/
-        |--train/
-        |--val/
-        |--test/
-```
-
-
-Run the following commands:
-
-```
-pip3 install requirements.txt
-chmod +x domain_adaptation/source/prep_all.sh
-./domain_adaptation/source/prep_all.sh
-```
-
-This will create a folder "domain_adaptation/source/source_datasets_dir/" where you will find the images and annotations for the source dataset to be used for any of the domain adaptation challenges.
 
 ## Target datasets:
 
@@ -108,16 +48,6 @@ For the supervised domain adaptation and semantic segmentation tasks, the masks 
 ```bash
 python preperation/createLabels.py --datadir $ANUE --id-type level3Id --num-workers $C
 ```
-
-Following commands are updated for the target labels of other domain adaptation tasks:
-
-```
-python3 preperation/createLabels.py --datadir $ANUE --id-type level3Id --num-workers $C --semisup_da True
-python3 preperation/createLabels.py --datadir $ANUE --id-type level3Id --num-workers $C --weaksup_da True
-python3 preperation/createLabels.py --datadir $ANUE --id-type level3Id --num-workers $C --unsup_da True
-
-```
-The bounding box labels for weakly supervised domain adapation can be downloaded from here: https://github.com/AutoNUE/public-code/tree/master/domain_adaptation/target/weakly-supervised
 
 
 The generated files:
