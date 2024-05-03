@@ -4,3 +4,4 @@ tqdm
 Pillow
 scipy==1.1.0
 imageio
+numpngw
