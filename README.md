@@ -37,10 +37,10 @@ See helpers/anue_labels.py
 
 #### Generate Label Masks (for training/evaluation) (Semantic/Instance/Panoptic Segmentation)
 ```bash
-python preperation/createLabels_iddaw.py --datadir $ANUE --id-type $IDTYPE --color [True|False] --num-workers $C
+python preperation/createLabels_iddaw.py --datadir $IDDAW --id-type $IDTYPE --color [True|False] --num-workers $C
 ```
 
-- ANUE is the path to the AutoNUE dataset
+- IDDAW is the path to the IDD-AW dataset
 - IDTYPE can be id, csId, csTrainId, level3Id, level2Id, level1Id.
 - color True  generates the color masks
 - C is the number of threads to run in parallel
