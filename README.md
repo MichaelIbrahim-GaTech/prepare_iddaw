@@ -1,8 +1,15 @@
 
-# ICPR-24 Competition on Safe Segmentation of Drive Scenes in Unstructured Traffic and Adverse Weather Condition 
+# ICPR-24 Competition on Safe Segmentation of Drive Scenes in Unstructured Traffic and Adverse Weather Condition
 
 This repository contains the datasets related to safe segmentation challenge for ICPR-24 Competition on Safe Segmentation of Drive Scenes in Unstructured Traffic and Adverse Weather Condition, ICPR 2024 . For more details, please visit https://mobility.iiit.ac.in/safe-seg-24/
 
+## Installing requirements
+
+Firstly install the required libraries using
+
+```
+pip install -r requirements.txt
+```
 
 ## Target datasets:
 
@@ -11,7 +18,7 @@ This repository contains the datasets related to safe segmentation challenge for
 export PYTHONPATH="${PYTHONPATH}:helpers/"
 ```
 
-### Dataset Structure 
+### Dataset Structure
 
 The structure is similar to the IDD dataset. That is:
 ```
@@ -34,11 +41,11 @@ python preperation/createLabels_iddaw.py --datadir $ANUE --id-type $IDTYPE --col
 ```
 
 - ANUE is the path to the AutoNUE dataset
-- IDTYPE can be id, csId, csTrainId, level3Id, level2Id, level1Id. 
+- IDTYPE can be id, csId, csTrainId, level3Id, level2Id, level1Id.
 - color True  generates the color masks
 - C is the number of threads to run in parallel
 
-<!-- 
+<!--
 For the supervised domain adaptation and semantic segmentation tasks, the masks should be generated using IDTYPE of level3Id and used for training models (similar to trainId in cityscapes). This can be done by the command:
 ```bash
 python preperation/createLabels.py --datadir $ANUE --id-type level3Id --num-workers $C
@@ -61,7 +68,7 @@ python viewer/viewer.py ---datadir $ANUE
 
 TODO: Make the color map more sensible.
 
-<!-- 
+<!--
 ## Evaluation
 
 ### Semantic Segmentation
@@ -71,7 +78,7 @@ First generate labels masks with level3Ids as described before. Then
 python evaluate/evaluate_mIoU.py --gts $GT  --preds $PRED  --num-workers $C
 ```
 
-- GT is the folder path of ground truths containing <drive_no>/<img_no>_gtFine_labellevel3Ids.png 
+- GT is the folder path of ground truths containing <drive_no>/<img_no>_gtFine_labellevel3Ids.png
 - PRED is the folder paths of predictions with the same folder structure and file names.
 - C is the number of threads to run in parallel
 
