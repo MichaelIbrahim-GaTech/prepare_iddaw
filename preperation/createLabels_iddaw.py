@@ -89,7 +89,7 @@ def main(args):
     sys.path.append(os.path.normpath(os.path.join(
         os.path.dirname(__file__), '..', 'helpers')))
     # how to search for all ground truth
-    searchFine = os.path.join(args.datadir,
+    searchFine = os.path.join(args.datadir, "*", "*", "*",
                              "*", "*mask.json")
 
     # search files
@@ -97,7 +97,7 @@ def main(args):
     filesFine.sort()
     print(filesFine)
 
-    files = []#filesFine
+    files = filesFine
 
     tqdm.write(
         "Processing {} annotation files for Sematic/Instance Segmentation".format(len(files)))
